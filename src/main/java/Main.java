@@ -8,13 +8,23 @@ public class Main {
 
         System.out.println("Task1. Enter numbers separated by commas");
         String input1 = scanner.nextLine();
-        int[] nArr1 = Arrays.stream(input1.split(",")).mapToInt(Integer::parseInt).toArray();
-        System.out.println("Max of (nums[i]-1)*(nums[j]-1): " + maximumOf(nArr1));
+        try {
+            int[] nArr1 = Arrays.stream(input1.split(",")).mapToInt(Integer::parseInt).toArray();
+            System.out.println("Max of (nums[i]-1)*(nums[j]-1): " + maximumOf(nArr1));
+        } catch (NumberFormatException e){
+            System.out.println(e.getMessage());
+            System.out.println("Ошибка: вы ввели не число");
+        }
 
         System.out.println("Task2. Enter numbers separated by commas");
         String input2 = scanner.nextLine();
+        try {
         int[] nArr2 = Arrays.stream(input2.split(",")).mapToInt(Integer::parseInt).toArray();
         System.out.println("Sorted array of squares of numbers: " + Arrays.toString(squares(nArr2)));
+        } catch (NumberFormatException e){
+            System.out.println(e.getMessage());
+            System.out.println("Ошибка: вы ввели не число");
+        }
 
     }
 
